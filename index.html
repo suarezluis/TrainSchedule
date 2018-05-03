@@ -10,56 +10,76 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+        
     <title>Train Schedule</title>
 </head>
 
 <body>
+
     <div class="banner">
         <h1 class="title">Anytime is Train Time</h1>
         <h3 class="subtitle">Choo Choo. Chee Chee.</h3>
     </div>
+
     <div class="container">
+
         <div class="window">
+
             <div class="content">
+
                 <h3 class="headder">Current Train Schedules</h3>
-                <table>
-                        <thead>
-                                <tr>
-                                  <th>Train Name</th>
-                                  <th>Destination</th>
-                                  <th>Frequency(min.)</th>
-                                  <th>Next Arrival</th>
-                                  <th>Minutes Away</th>
-                                  
-                                </tr>
-                              </thead>
+
+                <table id="table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency(min.)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                            
+                        </tr>
+                        
+                    </thead>
+                        
                 </table>
+
             </div>
+            <button class="clear">Clear</button>  
             <br>
+            
             <div class="input">
+                <form>
                 <h3 class="headder">Add Train</h3>
-                <label for="">Train name</label>   
+                <label for="">Train name</label>
                 <br>
-                <input type="text" class="inputText" id="nameInput" placeholder="Midnight Express">
-                <br> 
-                <label for="">Destination</label>   
+                <input type="text" class="inputText" id="nameInput" placeholder="Midnight Express" required>
                 <br>
-                <input type="text" class="inputText" id="destinationInput" placeholder="Hell Hill">
+                <label for="">Destination</label>
                 <br>
-                <label for="">First Train Time (HH:mm - military time)</label>
+                <input type="text" class="inputText" id="destinationInput" placeholder="Hell Hill" required>
                 <br>
-                <input type="text" class="inputText" id="timeInput" placeholder="15:30">
-                <br> 
-                <label for="">Frequency (min)</label>   
+                <label for="">First Train Time</label>
                 <br>
-                <input type="text" class="inputText" id="frequencyInput" placeholder="60">
+                <input type="time" class="inputText" id="firstTrainInput" placeholder="15:30" required>
                 <br>
+                <label for="">Frequency (min)</label>
+                <br>
+                <input type="number" class="inputText" id="frequencyInput" placeholder="60" required>
+                <br>
+                <input id="submit" type="submit" value="Add Train">
                 
-                <h3 id="submit">Add Train</h3>
-                
+            </form>
             </div>
+
         </div>
+
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="assets/javascript/main.js"></script>
 </body>
 
 </html>

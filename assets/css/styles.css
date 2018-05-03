@@ -1,10 +1,25 @@
+.content::-webkit-scrollbar {
+    width: 1em;
+    height: 1em;
+    margin-top: 10px;
+}
+ 
+.content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.content::-webkit-scrollbar-thumb {
+  background-color: dimgrey;
+  outline: 1px solid slategrey;
+  border-radius: 50px;
+  
+}
 body {
   margin: 0;
   background: url("../images/bg.gif");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  
 }
 
 * {
@@ -12,76 +27,100 @@ body {
   color: dimgrey;
 }
 .banner {
-  
   background-color: black;
-  
+
   margin: 0;
   text-align: center;
-  padding: 40px;
-}
-/* .container {
-  background: url("../images/bg.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  margin-top: 0;
-  padding-top: 50px;
-} */
-
-.window{
-    background-color: #000000af;
-    width: 70%;
-    margin: auto;
-    border-radius: 20px;
-    padding: 20px;
-}
-.content{
-    border: solid dimgrey 1px;
-    border-radius: 12px;
-}
-.input{
-    border: solid dimgrey 1px;
-    border-radius: 12px;
-    
+  padding: 10px;
 }
 
-.headder{
-background-color: dimgrey;
-border-top-right-radius: 10px;
-border-top-left-radius: 10px;
-margin: 0;
-color:whitesmoke;
-padding: 5px;
+
+.window {
+  background-color: #000000af;
+  width: 70%;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
 }
 
-table{
-    width: 90%;
-    color: whitesmoke;
+
+.content {
+  border: solid dimgrey 1px;
+  border-radius: 12px;
+  max-height: 40vh;
+  overflow: auto;
 }
 
-th{
-    color: whitesmoke;
+
+.input {
+  width: 400px;
+  margin: auto;
+  border: solid dimgrey 1px;
+  border-radius: 12px;
+  text-align: left;
 }
 
-label{
-    margin: 0 !important;
-    color: whitesmoke;
-    font-size: 20px;
-    padding: 10px;
+.headder {
+  background-color: dimgrey;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 0;
+  color: whitesmoke;
+  padding: 5px;
 }
 
-.inputText{
-    width: 50%;
-    margin: 0 10px;
-    
+table {
+  width: 90%;
+  color: whitesmoke;
+  text-align: center;
+  margin: auto;
 }
 
-#submit{
+th, td {
+  color: whitesmoke;
+}
+
+label {
+  
+  color: whitesmoke;
+  font-size: 20px;
+  padding: 10px;
+  
+}
+
+.inputText {
+  width: 376px;
+  margin: 10px;
+  padding: 0;
+}
+
+.inputText:focus {
+    outline-offset: 1px;
+    outline: whitesmoke 1px dotted;
+  }
+
+#submit, .clear{
+  width: fit-content;
+  margin: 10px;
+  background-color: dimgrey;
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 10px;
+  user-select: none;
+  transition: all 1s;
+}
+
+#submit:hover, .clear:hover {
     width: fit-content;
     margin: 10px;
-    background-color: dimgrey;
-    color: whitesmoke;
+    background-color: whitesmoke;
+    color: dimgrey;
     padding: 5px;
     border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: white 0.5px 0px 5px, white -0.5px 0px 5px, white 0px 0.5px 5px, white 0px -0.5px 5px;
+    
+  }
 
-}
