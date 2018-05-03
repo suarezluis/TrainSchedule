@@ -150,3 +150,4 @@ function minutesAway(first, frequency){
   }
   return Math.ceil((next - now)/1000/60)
 }
+

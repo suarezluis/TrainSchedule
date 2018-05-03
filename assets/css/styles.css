@@ -124,3 +124,22 @@ label {
     
   }
 
+  @media screen and (max-width: 425px) {
+    body{
+        font-size: 10px;
+    }
+    .input {
+        width: 200px;
+    }
+    .inputText{
+        width: 175px;
+    }
+    .window{
+        width: 75%
+    }
+    .content{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+  }
