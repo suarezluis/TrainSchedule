@@ -109,7 +109,7 @@ label {
   padding: 5px;
   border-radius: 10px;
   user-select: none;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 #submit:hover, .clear:hover {

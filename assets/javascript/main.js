@@ -22,7 +22,7 @@ var newTrain = {
 };
 
 $("#submit").on("click", function(event) {
-  event.preventDefault();
+  
   name = $("#nameInput").val();
   destination = $("#destinationInput").val();
   firstTrain = $("#firstTrainInput").val();
