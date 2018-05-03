@@ -1,3 +1,6 @@
+// Programmed by Luis Suarez withoud moment.js
+// code like a man and avoid dependencies!!!
+
 var config = {
   apiKey: "AIzaSyCMZUFGTi5fg3qB0x-uDAPvruRRbMyixG0",
   authDomain: "ut-codingcamp-45ac0.firebaseapp.com",

@@ -125,6 +125,10 @@ label {
     
   }
 
+  .delete:hover {
+      cursor: pointer;
+      color:red;
+  }
   @media screen and (max-width: 425px) {
     body{
         font-size: 10px;
