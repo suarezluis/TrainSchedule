@@ -93,6 +93,7 @@ label {
   width: 376px;
   margin: 10px;
   padding: 0;
+  color: black;
 }
 
 .inputText:focus {
