@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <title>Train Schedule</title>
+</head>
+
+<body>
+    <div class="banner">
+        <h1 class="title">Anytime is Train Time</h1>
+        <h3 class="subtitle">Choo Choo. Chee Chee.</h3>
+    </div>
+    <div class="container">
+        <div class="window">
+            <div class="content">
+                <h3 class="headder">Current Train Schedules</h3>
+                <table>
+                        <thead>
+                                <tr>
+                                  <th>Train Name</th>
+                                  <th>Destination</th>
+                                  <th>Frequency(min.)</th>
+                                  <th>Next Arrival</th>
+                                  <th>Minutes Away</th>
+                                  
+                                </tr>
+                              </thead>
+                </table>
+            </div>
+            <br>
+            <div class="input">
+                <h3 class="headder">Add Train</h3>
+                <label for="">Train name</label>   
+                <br>
+                <input type="text" class="inputText" id="nameInput" placeholder="Midnight Express">
+                <br> 
+                <label for="">Destination</label>   
+                <br>
+                <input type="text" class="inputText" id="destinationInput" placeholder="Hell Hill">
+                <br>
+                <label for="">First Train Time (HH:mm - military time)</label>
+                <br>
+                <input type="text" class="inputText" id="timeInput" placeholder="15:30">
+                <br> 
+                <label for="">Frequency (min)</label>   
+                <br>
+                <input type="text" class="inputText" id="frequencyInput" placeholder="60">
+                <br>
+                
+                <h3 id="submit">Add Train</h3>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
