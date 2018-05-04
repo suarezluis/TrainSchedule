@@ -9,7 +9,11 @@ var config = {
   storageBucket: "",
   messagingSenderId: "955060422974"
 };
+
+// Initialize firebase app
 firebase.initializeApp(config);
+
+// Declare global variables 
 var database = firebase.database();
 var trainsRef = database.ref("/TrainSchedule/Trains");
 var timeRef = database.ref("/TrainSchedule/Timer");
@@ -25,12 +29,13 @@ var newTrain = {
   frequency: "",
   train: true
 };
+
+// Start timer
 startTimer();
+
+//Listen for click on submit button, validate fields and push 
+//new train to database
 $("#submit").on("click", function(event) {
-  
-  
-     
-  
   name = $("#nameInput").val();
   destination = $("#destinationInput").val();
   firstTrain = $("#firstTrainInput").val();
@@ -42,20 +47,16 @@ $("#submit").on("click", function(event) {
     frequency: frequency
   };
   if (name != "" && destination != "" && firstTrain != "" && frequency != "") {
-    
     trainsRef.push(newTrain);
-    $("td").css("display","none")
+    $("td").css("display", "none");
   }
-
-  
 });
 
-updateTrains();
 
+
+// Function to update the list of trains on screen
 function updateTrains() {
   trainsRef.on("child_added", function(snap, key) {
-    
-    
     $(".delete").off("click");
 
     $("#table").append(
@@ -76,20 +77,16 @@ function updateTrains() {
         "'>x</td></tr>"
     );
 
-    
-
     $(".delete").on("click", function(e) {
       var child = $(this).attr("id");
       console.log(child);
       trainsRef.child(child).remove();
       $("#" + child).remove();
     });
-    
   });
-  
-   
 }
 
+// Listen for click on clear all button and remove all trains
 $(".clear").on("click", function() {
   trainsRef.remove();
 });
@@ -100,7 +97,6 @@ function startTimer() {
     $(".row").remove();
 
     updateTrains();
-    
   }, 1000);
 }
 
