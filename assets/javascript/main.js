@@ -44,7 +44,7 @@ $("#submit").on("click", function(event) {
 trainsRef.on("child_added", function(snap, key) {
   $("#table").append(
     "<tr class='row' id='" +
-      key +
+      snap.key +
       "'><td class='name'>" +
       snap.val().name +
       "</td><td>" +
@@ -55,12 +55,13 @@ trainsRef.on("child_added", function(snap, key) {
       nextArrival(snap.val().firstTrain, parseInt(snap.val().frequency)) +
       "</td><td class='time'>" +
       minutesAway(snap.val().firstTrain, parseInt(snap.val().frequency)) +
-      "</td><td class='delete' id='"+key+"'>x</td></tr>"
+      "</td><td class='delete' id='"+snap.key+"'>x</td></tr>"
     
   );
-  $("#" + key).on("click", function(){
-    //trainsRef.remove(key);
-    $("#" + key).remove()
+  $("#" + snap.key).on("click", function(){
+    console.log(snap.key)
+    trainsRef.child(snap.key).remove();
+    $("#" + snap.key).remove()
   })
 });
 
