@@ -21,7 +21,8 @@ var newTrain = {
   name: "",
   destination: "",
   firstTrain: "",
-  frequency: ""
+  frequency: "",
+  train:true
 };
 
 $("#submit").on("click", function(event) {
@@ -34,7 +35,8 @@ $("#submit").on("click", function(event) {
     name: name,
     destination: destination,
     firstTrain: firstTrain,
-    frequency: frequency
+    frequency: frequency,
+    train:'true'
   };
   if(name != "" && destination != "" && firstTrain != "" && frequency != ""){
   trainsRef.push(newTrain);}
@@ -42,8 +44,13 @@ $("#submit").on("click", function(event) {
   
 });
 
+updateTrains()
+function updateTrains(){
 trainsRef.on("child_added", function(snap, key) {
-  $("#table").append(
+  
+  if(snap.val().train == 'true'){
+  
+    $("#table").append(
     "<tr class='row' id='" +
       snap.key +
       "'><td class='name'>" +
@@ -59,12 +66,12 @@ trainsRef.on("child_added", function(snap, key) {
       "</td><td class='delete' id='"+snap.key+"'>x</td></tr>"
     
   );
-  $("#" + snap.key).on("click", function(){
-    console.log(snap.key)
+  $(".delete").on("click", function(){
+    
     trainsRef.child(snap.key).remove();
     $("#" + snap.key).remove()
-  })
-});
+  })}
+});}
 
 $(".clear").on("click", function(){
   trainsRef.remove();
@@ -93,6 +100,16 @@ timeRef.on("value", function(){
 // time, the argument first is the first ocurrence and is format is
 // "00:00" in military time, the argument frequency is an integer
 // value of minutes. returns the next ocurrence in a string "00:00 AM"
+
+var timer = setInterval(function(){
+  $(".row").remove();
+  updateTrains();
+  
+  //trainsRef.child("Time").set(Date())
+  //trainsRef.child("Time").remove()
+  
+}, 1000 )
+
 function nextArrival(first, frequency) {
   first = first.split(":");
   var pm = false;
@@ -153,6 +170,6 @@ function minutesAway(first, frequency){
   while (next < now) {
     next.setMinutes(next.getMinutes() + parseInt(frequency));
   }
-  return Math.ceil((next - now)/1000/60)
+  return Math.ceil((next - now)/1000/60) +":"+ Math.ceil((next - now)/1000)
 }
 
