@@ -11,7 +11,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
-var trainsRef = database.ref("/TrainSchedule");
+var trainsRef = database.ref("/TrainSchedule/Trains");
 var timeRef = database.ref("/TrainSchedule/Timer");
 var name;
 var destination;
@@ -36,7 +36,8 @@ $("#submit").on("click", function(event) {
     firstTrain: firstTrain,
     frequency: frequency
   };
-  trainsRef.push(newTrain);
+  if(name != "" && destination != "" && firstTrain != "" && frequency != ""){
+  trainsRef.push(newTrain);}
 
   
 });
