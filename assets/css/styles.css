@@ -15,7 +15,7 @@
   
 }
 body {
-  
+  background-color: black;
   /* background: url("../images/bg.gif");
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,6 +24,7 @@ body {
 
 .container {
     margin-top: 2px;;
+    background-color: black;
     background: url("../images/bg.gif");
     background-repeat: no-repeat;
     background-size: cover;
