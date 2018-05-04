@@ -27,7 +27,6 @@ var newTrain = {
 };
 startTimer();
 $("#submit").on("click", function(event) {
-  
   name = $("#nameInput").val();
   destination = $("#destinationInput").val();
   firstTrain = $("#firstTrainInput").val();
@@ -36,23 +35,19 @@ $("#submit").on("click", function(event) {
     name: name,
     destination: destination,
     firstTrain: firstTrain,
-    frequency: frequency,
-    
+    frequency: frequency
   };
   if (name != "" && destination != "" && firstTrain != "" && frequency != "") {
-     
     trainsRef.push(newTrain);
-    
   }
 });
 
 updateTrains();
 
 function updateTrains() {
-  
   trainsRef.on("child_added", function(snap, key) {
     $(".delete").off("click");
-    
+
     $("#table").append(
       "<tr class='row' id='" +
         snap.key +
@@ -76,7 +71,7 @@ function updateTrains() {
       trainsRef.child(child).remove();
       $("#" + child).remove();
     });
-  }); 
+  });
 }
 
 $(".clear").on("click", function() {
@@ -87,15 +82,14 @@ $(".clear").on("click", function() {
 function startTimer() {
   timer = setInterval(function() {
     $(".row").remove();
-    
+
     updateTrains();
-    
   }, 1000);
 }
 
 //function to stop timer
-function stopTimer(){
-  clearInterval(timer)
+function stopTimer() {
+  clearInterval(timer);
 }
 
 // Function to calculate the next train cycle after the current
@@ -158,7 +152,6 @@ function minutesAway(first, frequency) {
   next.setHours(parseInt(first[0]));
   next.setMinutes(parseInt(first[1]));
   next.setSeconds(0);
-  var hours;
 
   while (next < now) {
     next.setMinutes(next.getMinutes() + parseInt(frequency));
@@ -167,9 +160,13 @@ function minutesAway(first, frequency) {
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-  var minutes = (next - now) / 1000 / 60 - 1;
+  var minutes = ((next - now) / 1000 / 60) - 1;
+  while(minutes>60){minutes = minutes - 60}
   if (minutes < 0) {
     minutes = 0;
-  }
-  return minutes + ":" + seconds;
+  } if(minutes<10){minutes = "0"+minutes}
+
+  var hours = Math.floor((next - now) / 1000 / 60 / 60);
+
+  return hours + ":" + minutes + ":" + seconds;
 }
