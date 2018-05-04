@@ -27,6 +27,10 @@ var newTrain = {
 };
 startTimer();
 $("#submit").on("click", function(event) {
+  
+  
+     
+  
   name = $("#nameInput").val();
   destination = $("#destinationInput").val();
   firstTrain = $("#firstTrainInput").val();
@@ -38,14 +42,20 @@ $("#submit").on("click", function(event) {
     frequency: frequency
   };
   if (name != "" && destination != "" && firstTrain != "" && frequency != "") {
+    
     trainsRef.push(newTrain);
+    $("td").css("display","none")
   }
+
+  
 });
 
 updateTrains();
 
 function updateTrains() {
   trainsRef.on("child_added", function(snap, key) {
+    
+    
     $(".delete").off("click");
 
     $("#table").append(
@@ -65,13 +75,19 @@ function updateTrains() {
         snap.key +
         "'>x</td></tr>"
     );
+
+    
+
     $(".delete").on("click", function(e) {
       var child = $(this).attr("id");
       console.log(child);
       trainsRef.child(child).remove();
       $("#" + child).remove();
     });
+    
   });
+  
+   
 }
 
 $(".clear").on("click", function() {
@@ -84,6 +100,7 @@ function startTimer() {
     $(".row").remove();
 
     updateTrains();
+    
   }, 1000);
 }
 
@@ -160,11 +177,16 @@ function minutesAway(first, frequency) {
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-  var minutes = ((next - now) / 1000 / 60) - 1;
-  while(minutes>60){minutes = minutes - 60}
+  var minutes = (next - now) / 1000 / 60 - 1;
+  while (minutes > 60) {
+    minutes = minutes - 60;
+  }
   if (minutes < 0) {
     minutes = 0;
-  } if(minutes<10){minutes = "0"+minutes}
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
   var hours = Math.floor((next - now) / 1000 / 60 / 60);
 

@@ -140,6 +140,12 @@ label {
       cursor: pointer;
       color:red;
   }
+
+table{
+  
+}
+
+
   @media screen and (max-width: 425px) {
     body{
         font-size: 10px;
